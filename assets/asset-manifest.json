@@ -1,0 +1,103 @@
+{
+  "name": "Jembatan Aman, Dana Aman Asset Pack",
+  "version": "1.0.0",
+  "backgroundMap": "background/village-map.svg",
+  "backgrounds": {
+    "bridge": "background/rumahkeren.png",
+    "house": "background/village-map.png",
+    "road": "background/market-road-bg.svg",
+    "drainage": "background/rice-drainage-bg.svg",
+    "school": "background/school-yard-bg.svg",
+    "clinic": "background/clinic-village-bg.svg"
+  },
+  "bridge": "bridge/wooden-bridge.svg",
+  "projects": {
+    "house": "projects/house-project.svg",
+    "road": "projects/road-project.svg",
+    "drainage": "projects/drainage-project.svg",
+    "school": "projects/school-project.svg",
+    "clinic": "projects/clinic-project.svg"
+  },
+  "uiHud": "ui/hud-panel.svg",
+  "uiSoundOn": "ui/sound-on.svg",
+  "uiSoundOff": "ui/sound-off.svg",
+  "animation": "animation/worker-run.svg",
+  "characters": {
+    "mcBuilder": "characters/mc-builder.svg",
+    "mcCrimson": "characters/mc-crimson.svg",
+    "mcAzure": "characters/mc-azure.svg",
+    "workerNpc": "characters/worker-npc.svg",
+    "npcChief": "characters/npc-chief.svg",
+    "auditor": "characters/auditor.svg",
+    "villager": "characters/villager-walk.svg",
+    "villagerMale": "characters/villager-male.svg",
+    "villagerFemale": "characters/villager-female.svg",
+    "schoolChild": "characters/school-child.svg",
+    "healthWorker": "characters/health-worker.svg",
+    "marketCitizen": "characters/market-citizen.svg",
+    "villagerFrames": {
+      "idle": 4,
+      "run": 6,
+      "variants": 2,
+      "frameWidth": 96,
+      "frameHeight": 112
+    }
+  },
+  "items": {
+    "material": "items/steel-beam.svg",
+    "fund": "items/cement-bag.svg",
+    "bridgeBeam": "items/bridge-beam.svg",
+    "bridgeBolt": "items/bridge-bolt.svg",
+    "houseBrick": "items/house-brick.svg",
+    "housePaint": "items/house-paint.svg",
+    "roadAsphalt": "items/road-asphalt.svg",
+    "roadSign": "items/road-sign.svg",
+    "schoolDesk": "items/school-desk.svg",
+    "schoolBooks": "items/school-books.svg",
+    "clinicKit": "items/clinic-kit.svg",
+    "clinicTile": "items/clinic-tile.svg",
+    "permitDoc": "items/permit-doc.svg",
+    "safetyHelmet": "items/safety-helmet.svg",
+    "auditShield": "items/audit-shield.svg",
+    "materialMagnet": "items/material-magnet.svg",
+    "timeStar": "items/time-star.svg",
+    "bribe": "items/bribe-envelope.svg",
+    "fake": "items/fake-material.svg"
+  },
+  "houses": {
+    "yellow": "houses/yellow-house.svg",
+    "teal": "houses/teal-house.svg",
+    "red": "houses/red-house.svg",
+    "blueStilt": "houses/blue-stilt-house.svg"
+  },
+  "scenes": {
+    "caught": "scenes/caught-scene.svg"
+  },
+  "dialog": {
+    "villageOffice": "dialog/village-office.svg",
+    "communityHall": "dialog/community-hall.svg",
+    "marketMeeting": "dialog/market-meeting.svg",
+    "schoolRoom": "dialog/school-room.svg",
+    "clinicRoom": "dialog/clinic-room.svg"
+  },
+  "intro": {
+    "animeVillage": "intro/anime-village.svg",
+    "animeOffice": "intro/anime-office.svg",
+    "animePromise": "intro/anime-promise.svg",
+    "kertasaDarkCity": "intro/kertasa-dark-city.svg",
+    "kertasaPaper": "intro/kertasa-paper.svg",
+    "kertasaLightCity": "intro/kertasa-light-city.svg"
+  },
+  "vfx": "vfx/clean-burst.svg",
+  "font": "fonts/game-font.css",
+  "sfx": {
+    "click": "sfx/click.wav",
+    "good": "sfx/good.wav",
+    "bad": "sfx/bad.wav",
+    "combo": "sfx/combo.wav",
+    "dialog": "sfx/dialog.wav",
+    "win": "sfx/win.wav",
+    "lose": "sfx/lose.wav"
+  },
+  "bgm": "bgm/clean-project-loop.wav"
+}

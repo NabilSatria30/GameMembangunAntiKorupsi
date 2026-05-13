@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 180" role="img" aria-label="Asset proyek drainase dan irigasi">
+  <path d="M48 112C204 70 326 59 450 60c124-1 246 10 402 52" fill="none" stroke="#45636f" stroke-width="50" stroke-linecap="round"/>
+  <path d="M64 105C212 72 330 64 450 65c120-1 238 7 386 40" fill="none" stroke="#8fb7c5" stroke-width="31" stroke-linecap="round"/>
+  <path d="M75 100C218 78 332 72 450 73c118-1 232 5 375 27" fill="none" stroke="#2b9cc3" stroke-width="16" stroke-linecap="round"/>
+  <g fill="#60747d">
+    <rect x="120" y="80" width="34" height="57" rx="5"/>
+    <rect x="262" y="66" width="34" height="57" rx="5"/>
+    <rect x="433" y="62" width="34" height="57" rx="5"/>
+    <rect x="604" y="68" width="34" height="57" rx="5"/>
+    <rect x="746" y="83" width="34" height="57" rx="5"/>
+  </g>
+  <g stroke="#d6edf4" stroke-width="5" stroke-linecap="round" opacity=".8">
+    <path d="M147 95h118M296 82h137M467 78h137M638 84h119"/>
+  </g>
+</svg>

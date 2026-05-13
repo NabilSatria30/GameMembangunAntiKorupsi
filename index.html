@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kertasa Bersih: Proyek Tanpa Korupsi</title>
+  <link rel="stylesheet" href="assets/fonts/game-font.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <canvas id="gameCanvas" aria-label="Arena permainan Kertasa Bersih"></canvas>
+
+    <div class="hud" id="hud" aria-live="polite">
+      <div class="hud-card">
+        <span class="hud-label">Skor</span>
+        <strong id="scoreText">0</strong>
+      </div>
+      <div class="hud-card">
+        <span class="hud-label">Level</span>
+        <strong id="levelText">1/5</strong>
+      </div>
+      <div class="hud-card">
+        <span class="hud-label">Mode</span>
+        <strong id="modeText">Cerita</strong>
+      </div>
+      <div class="hud-card">
+        <span class="hud-label">Dana</span>
+        <strong id="budgetText">100</strong>
+      </div>
+      <div class="hud-card">
+        <span class="hud-label">Waktu</span>
+        <strong id="timeText">60</strong>
+      </div>
+      <div class="hud-card">
+        <span class="hud-label">Integritas</span>
+        <strong id="integrityText">100%</strong>
+      </div>
+      <div class="hud-card danger-meter">
+        <span class="hud-label">Progres</span>
+        <div class="meter">
+          <i id="strengthFill"></i>
+        </div>
+      </div>
+      <div class="hud-card">
+        <span class="hud-label">Combo</span>
+        <strong id="comboText">x1</strong>
+      </div>
+      <div class="hud-card">
+        <span class="hud-label">Rank</span>
+        <strong id="rankText">C</strong>
+      </div>
+      <div class="hud-card">
+        <span class="hud-label">Koin</span>
+        <strong id="coinText">0</strong>
+      </div>
+      <button class="icon-button" id="pauseButton" type="button" aria-label="Pause">
+        <span></span><span></span>
+      </button>
+      <button class="icon-button music-button" id="musicButton" type="button" aria-label="Suara aktif" aria-pressed="true"></button>
+    </div>
+
+    <div class="choice-panel mission-panel" id="choicePanel">
+      <div class="choice-copy">
+        <span id="roundText">Misi Aktif</span>
+        <strong id="levelGoalText">Selesaikan proyek sampai 100%</strong>
+      </div>
+      <button class="panel-toggle" id="missionToggleButton" type="button" aria-expanded="true" aria-label="Tutup panel item">i</button>
+      <div class="mission-list">
+        <span id="materialHintText"><b class="item-hint material-hint" id="materialHintIcon"></b>Baja legal: progres naik</span>
+        <span id="fundHintText"><b class="item-hint cement-hint" id="fundHintIcon"></b>Semen standar: progres naik</span>
+        <span><b class="item-hint permit-hint"></b>Dokumen izin: combo naik</span>
+        <span><b class="item-hint safety-hint"></b>Helm kerja: integritas naik</span>
+        <span><b class="item-hint shield-hint"></b>Shield audit: tahan item buruk</span>
+        <span><b class="item-hint magnet-hint"></b>Magnet bahan: tarik item baik</span>
+        <span><b class="item-hint time-hint"></b>Jam bonus: tambah waktu</span>
+        <span><b class="item-hint bribe-hint"></b>Suap dana: progres turun</span>
+        <span><b class="item-hint fake-hint"></b>Material palsu: progres turun</span>
+      </div>
+    </div>
+
+    <div class="mobile-controls" id="mobileControls">
+      <button type="button" data-action="left" aria-label="Bergerak ke kiri">&lt;</button>
+      <button type="button" id="dashButton" aria-label="Dash">Dash</button>
+      <button type="button" data-action="right" aria-label="Bergerak ke kanan">&gt;</button>
+    </div>
+
+    <section class="overlay active" id="startScreen">
+      <div class="menu-panel">
+        <div class="brand-mark"></div>
+        <p class="eyebrow">Game Integritas Indonesia</p>
+        <h1>Kertasa Bersih</h1>
+        <p class="menu-text">Bangun desa tanpa suap. Pilih material legal, jaga dana publik, dan buktikan proyek rakyat bisa selesai bersih.</p>
+        <div class="menu-actions">
+          <button class="primary-button start-game-button" id="startButton" type="button">
+            <span class="button-icon icon-play" aria-hidden="true"></span>
+            Mulai Cerita
+          </button>
+          <button class="primary-button start-game-button endless-button" id="endlessButton" type="button">
+            <span class="button-icon icon-endless" aria-hidden="true"></span>
+            Mode Endless
+          </button>
+          <button class="ghost-button" id="howButton" type="button"><span class="button-icon icon-help" aria-hidden="true"></span>Cara Main</button>
+          <button class="ghost-button" id="shopButton" type="button"><span class="button-icon icon-shop" aria-hidden="true"></span>Shop</button>
+          <button class="ghost-button" id="achievementButton" type="button"><span class="button-icon icon-achievement" aria-hidden="true"></span>Achievement</button>
+          <button class="ghost-button" id="itemGuideButton" type="button"><span class="button-icon icon-items" aria-hidden="true"></span>Barang</button>
+          <button class="ghost-button" id="settingsButton" type="button"><span class="button-icon icon-settings" aria-hidden="true"></span>Settings</button>
+        </div>
+        <div class="mini-stats">
+          <span>High Score</span>
+          <strong id="startHighScore">0</strong>
+        </div>
+        <ol class="leaderboard-list" id="startLeaderboard"></ol>
+      </div>
+    </section>
+
+    <section class="overlay" id="shopScreen">
+      <div class="menu-panel wide-panel scroll-panel">
+        <p class="eyebrow">Shop</p>
+        <h2>Skin Studio</h2>
+        <p class="menu-text">Koin didapat dari menyelesaikan level dan bertahan di endless. Beli skin, lalu equip untuk dipakai di arena.</p>
+        <div class="shop-wallet">Koin <strong id="shopCoinText">0</strong></div>
+        <div class="shop-section">
+          <h3>Skin Karakter</h3>
+          <div class="shop-grid" id="characterShopGrid"></div>
+        </div>
+        <div class="shop-section">
+          <h3>Skin Kendaraan</h3>
+          <div class="shop-grid" id="vehicleShopGrid"></div>
+        </div>
+        <div class="menu-actions">
+          <button class="ghost-button" id="closeShopButton" type="button"><span class="button-icon icon-back" aria-hidden="true"></span>Kembali</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="overlay" id="achievementScreen">
+      <div class="menu-panel wide-panel scroll-panel">
+        <p class="eyebrow">Achievement</p>
+        <h2>Jejak Integritas</h2>
+        <div class="achievement-grid" id="achievementGrid"></div>
+        <div class="menu-actions">
+          <button class="ghost-button" id="closeAchievementButton" type="button"><span class="button-icon icon-back" aria-hidden="true"></span>Kembali</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="overlay" id="itemGuideScreen">
+      <div class="menu-panel wide-panel scroll-panel">
+        <p class="eyebrow">Keterangan Barang</p>
+        <h2>Legal, Power-Up, Ilegal</h2>
+        <div class="item-guide-grid" id="itemGuideGrid"></div>
+        <div class="menu-actions">
+          <button class="ghost-button" id="closeItemGuideButton" type="button"><span class="button-icon icon-back" aria-hidden="true"></span>Kembali</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="overlay" id="levelSelectScreen">
+      <div class="menu-panel level-panel">
+        <p class="eyebrow">Pilih Level</p>
+        <h2>Proyek Desa</h2>
+        <p class="menu-text">Level terbuka bertahap setelah proyek sebelumnya selesai.</p>
+        <div class="level-grid" id="levelGrid"></div>
+        <div class="menu-actions">
+          <button class="ghost-button" id="closeLevelSelectButton" type="button"><span class="button-icon icon-back" aria-hidden="true"></span>Kembali</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="overlay dialog-overlay" id="dialogScreen">
+      <div class="dialog-bg" id="dialogBackground"></div>
+      <div class="dialog-panel">
+        <img id="dialogAvatar" src="assets/characters/npc-chief.svg" alt="" aria-hidden="true">
+        <div class="dialog-copy">
+          <p class="eyebrow" id="dialogSpeaker">Kepala Desa</p>
+          <h2 id="dialogTitle">Misi Baru</h2>
+          <p id="dialogText">Bangun fasilitas publik dengan jujur.</p>
+          <div class="vn-actions">
+            <button class="primary-button" id="dialogContinueButton" type="button"><span class="button-icon icon-next" aria-hidden="true"></span>Next</button>
+            <button class="ghost-button" id="dialogSkipButton" type="button"><span class="button-icon icon-skip" aria-hidden="true"></span>Skip</button>
+          </div>
+        </div>
+        <img class="dialog-mc" id="dialogMcAvatar" src="assets/characters/mc-builder.svg" alt="" aria-hidden="true">
+      </div>
+    </section>
+
+    <section class="overlay" id="storyScreen">
+      <div class="menu-panel story-panel">
+        <p class="eyebrow">Cerita</p>
+        <h2>Desa Butuh Proyek Aman</h2>
+        <p class="menu-text">Desa membutuhkan fasilitas yang aman: jembatan, rumah layak, jalan pasar, sekolah, dan pos kesehatan. Dana desa harus dipakai bersih sebelum warga sampai ke area yang belum selesai.</p>
+        <div class="story-steps">
+          <div><span>1</span><strong>Bangun dengan material aman</strong><small>Ambil baja legal dan semen standar agar progres proyek naik.</small></div>
+          <div><span>2</span><strong>Tolak korupsi proyek</strong><small>Suap dana dan material palsu membuat progres turun serta merusak integritas.</small></div>
+          <div><span>3</span><strong>Lindungi warga</strong><small>Jika warga sampai ke bagian proyek yang belum jadi, level gagal karena fasilitas belum aman.</small></div>
+        </div>
+        <div class="menu-actions">
+          <button class="primary-button start-game-button" id="storyStartButton" type="button">
+            <span class="button-icon icon-next" aria-hidden="true"></span>
+            Next
+          </button>
+          <button class="ghost-button" id="closeStoryButton" type="button"><span class="button-icon icon-back" aria-hidden="true"></span>Kembali</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="overlay cinematic-overlay" id="cinematicScreen">
+      <div class="cinematic-panel">
+        <canvas id="storyCanvas" aria-label="Video cerita pembuka game"></canvas>
+        <div class="cinematic-caption">
+          <p class="eyebrow" id="cinematicLabel">Cerita Desa</p>
+          <h2 id="cinematicTitle">Dana Desa Harus Dijaga</h2>
+          <p id="cinematicText">Warga membutuhkan proyek yang aman dan jujur.</p>
+        </div>
+        <div class="cinematic-progress"><i id="cinematicProgress"></i></div>
+        <div class="menu-actions cinematic-actions">
+          <button class="primary-button start-game-button" id="cinematicStartButton" type="button">
+            <span class="button-icon icon-next" aria-hidden="true"></span>
+            Next
+          </button>
+          <button class="ghost-button" id="skipCinematicButton" type="button"><span class="button-icon icon-skip" aria-hidden="true"></span>Lewati Video</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="overlay" id="pauseScreen">
+      <div class="menu-panel compact">
+        <p class="eyebrow">Pause</p>
+        <h2>Permainan Dijeda</h2>
+        <p class="menu-text">Lanjutkan, ulangi level ini, kembali ke home, atau atur suara game.</p>
+        <div class="menu-actions">
+          <button class="primary-button" id="resumeButton" type="button"><span class="button-icon icon-play" aria-hidden="true"></span>Lanjutkan</button>
+          <button class="ghost-button" id="restartFromPauseButton" type="button"><span class="button-icon icon-restart" aria-hidden="true"></span>Restart Level</button>
+          <button class="ghost-button" id="homeFromPauseButton" type="button"><span class="button-icon icon-home" aria-hidden="true"></span>Home</button>
+          <button class="ghost-button danger-action" id="clearDataButton" type="button"><span class="button-icon icon-delete" aria-hidden="true"></span>Hapus Data</button>
+        </div>
+        <div class="settings-group">
+          <label>Volume Musik <input id="musicVolumeSlider" type="range" min="0" max="100" value="18"></label>
+          <label>Volume SFX <input id="sfxVolumeSlider" type="range" min="0" max="100" value="42"></label>
+        </div>
+      </div>
+    </section>
+
+    <section class="overlay confirm-overlay" id="confirmScreen">
+      <div class="menu-panel compact confirm-panel">
+        <p class="eyebrow" id="confirmLabel">Konfirmasi</p>
+        <h2 id="confirmTitle">Yakin?</h2>
+        <p class="menu-text" id="confirmMessage"></p>
+        <div class="menu-actions">
+          <button class="primary-button" id="confirmYesButton" type="button"><span class="button-icon icon-check" aria-hidden="true"></span>Ya</button>
+          <button class="ghost-button" id="confirmNoButton" type="button"><span class="button-icon icon-close" aria-hidden="true"></span>Batal</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="overlay" id="gameOverScreen">
+      <div class="menu-panel compact">
+        <p class="eyebrow" id="resultLabel">Evaluasi Proyek</p>
+        <h2 id="resultTitle">Proyek Selesai</h2>
+        <img class="result-scene" id="resultScene" src="assets/scenes/caught-scene.svg" alt="" aria-hidden="true">
+        <p class="menu-text" id="resultMessage"></p>
+        <div class="result-grid">
+          <div><span>Skor</span><strong id="finalScore">0</strong></div>
+          <div><span>High Score</span><strong id="finalHighScore">0</strong></div>
+          <div><span>Rank</span><strong id="finalRank">C</strong></div>
+          <div><span>Combo Max</span><strong id="finalCombo">x1</strong></div>
+        </div>
+        <ol class="leaderboard-list" id="finalLeaderboard"></ol>
+        <div class="menu-actions">
+          <button class="primary-button" id="restartButton" type="button"><span class="button-icon icon-restart" aria-hidden="true"></span>Main Lagi</button>
+          <button class="primary-button" id="retryLevelButton" type="button"><span class="button-icon icon-restart" aria-hidden="true"></span>Ulang Level Ini</button>
+          <button class="ghost-button" id="backToStartButton" type="button"><span class="button-icon icon-home" aria-hidden="true"></span>Menu Awal</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="overlay" id="howScreen">
+      <div class="menu-panel how-panel">
+        <p class="eyebrow">Cara Main</p>
+        <h2>Bangun, Uji, Jaga</h2>
+        <p class="menu-text">Jadilah pengawas proyek desa. Ambil bahan legal, jaga integritas, dan jangan biarkan dana publik bocor.</p>
+        <div class="how-guide-grid">
+          <article>
+            <span class="button-icon icon-play" aria-hidden="true"></span>
+            <strong>Gerak Cepat</strong>
+            <p><b>A/D</b> atau <b>kiri/kanan</b> untuk bergerak. Di HP, tahan tombol arah.</p>
+          </article>
+          <article>
+            <span class="button-icon icon-endless" aria-hidden="true"></span>
+            <strong>Dash</strong>
+            <p>Tekan <b>Spasi</b> atau tombol <b>Dash</b> untuk mengejar item penting.</p>
+          </article>
+          <article>
+            <span class="button-icon icon-items" aria-hidden="true"></span>
+            <strong>Ambil Barang Baik</strong>
+            <p>Bahan legal, izin, helm, shield, magnet, dan waktu bonus membantu proyek.</p>
+          </article>
+          <article>
+            <span class="button-icon icon-delete" aria-hidden="true"></span>
+            <strong>Hindari Korupsi</strong>
+            <p>Suap dana dan material palsu menurunkan progres, skor, dan integritas.</p>
+          </article>
+        </div>
+        <div class="control-chip-row">
+          <span>A / D</span>
+          <span>Arrow</span>
+          <span>Space</span>
+          <span>Dash</span>
+        </div>
+        <button class="primary-button" id="closeHowButton" type="button"><span class="button-icon icon-check" aria-hidden="true"></span>Mengerti</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

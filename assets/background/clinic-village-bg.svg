@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Latar pos kesehatan desa">
+  <defs><linearGradient id="sky" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#c6f4ff"/><stop offset=".62" stop-color="#edf8ee"/><stop offset="1" stop-color="#ffe0b8"/></linearGradient></defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <path d="M0 512h1600v388H0z" fill="#75bd68"/>
+  <path d="M0 624c270-48 495-42 755 2 296 51 516 23 845-34v135H0z" fill="#9ac980"/>
+  <path d="M-40 678c310-52 563-41 810-1 290 46 522 38 870-18v82H-40z" fill="#d4c7ae"/>
+  <rect x="86" y="382" width="250" height="130" rx="8" fill="#f6fbff"/><path d="M58 388l153-90 153 90z" fill="#e84d5b"/><rect x="178" y="424" width="66" height="88" fill="#18a999"/><rect x="196" y="325" width="30" height="86" rx="4" fill="#fff"/><rect x="168" y="353" width="86" height="30" rx="4" fill="#fff"/>
+  <rect x="1210" y="405" width="170" height="104" fill="#ffc34d"/><path d="M1184 410l111-67 111 67z" fill="#9c4f36"/><rect x="1252" y="456" width="32" height="33" fill="#fff2c7"/><rect x="1311" y="456" width="32" height="33" fill="#fff2c7"/>
+  <rect x="1420" y="426" width="118" height="84" fill="#18a999"/><path d="M1398 431l81-48 81 48z" fill="#8f4435"/>
+  <g fill="#fff" opacity=".78"><ellipse cx="1050" cy="150" rx="105" ry="30"/><circle cx="1002" cy="140" r="35"/><circle cx="1084" cy="130" r="42"/></g>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 180" role="img" aria-label="Asset proyek jalan desa">
+  <path d="M40 118C210 78 341 65 450 66c109-1 240 12 410 52" fill="none" stroke="#2f3438" stroke-width="54" stroke-linecap="round"/>
+  <path d="M54 105C220 72 345 62 450 63c105-1 230 9 396 42" fill="none" stroke="#555f66" stroke-width="35" stroke-linecap="round"/>
+  <g fill="#f5d86e">
+    <rect x="114" y="92" width="55" height="8" rx="4" transform="rotate(-9 141.5 96)"/>
+    <rect x="245" y="75" width="55" height="8" rx="4" transform="rotate(-5 272.5 79)"/>
+    <rect x="382" y="69" width="55" height="8" rx="4"/>
+    <rect x="518" y="72" width="55" height="8" rx="4" transform="rotate(4 545.5 76)"/>
+    <rect x="650" y="88" width="55" height="8" rx="4" transform="rotate(9 677.5 92)"/>
+  </g>
+  <path d="M48 143c157-45 280-58 402-57 122-1 245 12 402 57" fill="none" stroke="#161a1d" stroke-opacity=".22" stroke-width="12" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 132" role="img" aria-label="Lambang Kertasa Bersih">
+  <defs>
+    <linearGradient id="shield" x1="26" x2="136" y1="14" y2="118" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffdd62"/>
+      <stop offset=".46" stop-color="#24b37a"/>
+      <stop offset="1" stop-color="#1d66d2"/>
+    </linearGradient>
+  </defs>
+  <path d="M80 8 139 29v37c0 31-21 52-59 62-38-10-59-31-59-62V29z" fill="url(#shield)"/>
+  <path d="M80 20 127 37v30c0 23-16 39-47 48-31-9-47-25-47-48V37z" fill="#fff" opacity=".18"/>
+  <path d="M46 73 66 93l49-54" fill="none" stroke="#fff" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M33 34h94" stroke="#e23334" stroke-width="8" stroke-linecap="round"/>
+  <path d="M45 112c18 9 51 9 70 0" fill="none" stroke="#10202d" stroke-width="5" stroke-linecap="round" opacity=".28"/>
+</svg>

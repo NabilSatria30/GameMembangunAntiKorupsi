@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Latar sungai untuk proyek jembatan">
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#bdefff"/><stop offset=".55" stop-color="#e8f8ef"/><stop offset="1" stop-color="#ffd99d"/></linearGradient>
+    <linearGradient id="river" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#39bdd7"/><stop offset="1" stop-color="#116ba8"/></linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <path d="M0 440c260 46 426-45 648 8 230 54 391-35 584-5 146 23 239 82 368 56v401H0z" fill="url(#river)"/>
+  <g opacity=".38" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round">
+    <path d="M-60 512c280-60 410 54 680 2 236-46 364-27 600 36 161 42 256-9 441-13"/>
+    <path d="M-50 610c239 31 373-36 585-9 202 25 331 74 544 16 151-42 329 4 579 41"/>
+  </g>
+  <path d="M0 575h430c23 0 44 16 50 38l22 81H0zM1120 578h480v316h-480l-33-118c-18-65-17-132 3-197z" fill="#73bd65"/>
+  <path d="M0 598h438c21 0 39 14 44 34l6 24H0zM1125 598h475v53h-490z" fill="#579d52"/>
+  <g opacity=".82" fill="#fff">
+    <ellipse cx="222" cy="140" rx="80" ry="24"/><circle cx="184" cy="132" r="28"/><circle cx="240" cy="124" r="34"/>
+    <ellipse cx="1322" cy="194" rx="76" ry="21"/><circle cx="1290" cy="187" r="25"/><circle cx="1340" cy="180" r="31"/>
+  </g>
+</svg>

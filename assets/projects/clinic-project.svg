@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 180" role="img" aria-label="Asset proyek pos kesehatan">
+  <ellipse cx="450" cy="153" rx="330" ry="18" fill="#10202d" opacity=".14"/>
+  <rect x="184" y="67" width="532" height="86" rx="10" fill="#f6fbff"/>
+  <rect x="212" y="98" width="72" height="55" fill="#c8f5ef"/>
+  <rect x="616" y="98" width="72" height="55" fill="#c8f5ef"/>
+  <rect x="399" y="91" width="102" height="62" fill="#18a999"/>
+  <path d="M154 71 450 26l296 45z" fill="#e84d5b"/>
+  <rect x="424" y="45" width="52" height="16" rx="3" fill="#fff"/>
+  <rect x="442" y="27" width="16" height="52" rx="3" fill="#fff"/>
+  <text x="450" y="128" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="900" fill="#fff">POSKES</text>
+</svg>
